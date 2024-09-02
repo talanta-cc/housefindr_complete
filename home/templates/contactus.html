@@ -1,0 +1,37 @@
+<!DOCTYPE html> 
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Us</title>
+        {% load static %}
+        <link rel="stylesheet"   href="{% static 'css/contactus.css' %}">
+    </head>
+    <body>
+        <div class="contact-container">
+            <h2>Contact Us</h2>
+            <p> If you have got any questions or concerns, feel free to reach us through filling and submitting the Contact page here.</p>
+            <p>We'll be glad to here from you. And we'll work to ensure we get back to you immediately. </p>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+
+            <div id="formMessage" class="form-message"></div>
+
+        </div>
+
+        <script src="{% static 'css/contactus.js' %}"></script>
+    </body>
+</html>

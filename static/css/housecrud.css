@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f8f9fa;
+}
+
+.container {
+    width: 85%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+#house-list {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#house-list th,
+#house-list td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: center;
+}
+
+#house-list th {
+    background-color: #ff7e5f;
+    color: #fff;
+    font-weight: bold;
+}
+
+#house-list td {
+    background-color: #fff;
+    color: #0a0a0a;
+}
+
+#house-list td img {
+    width: 120px;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#house-list button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+    margin: 2px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#house-list .view-button {
+    background-color:  #ff7e5f;
+}
+
+#house-list .edit-button {
+    background-color:#ff7e5f;
+}
+
+#house-list .delete-button {
+    background-color: #dc3545;
+}
+
+#house-list button:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    #house-list {
+        font-size: 14px;
+    }
+
+    #house-list td img {
+        width: 100px;
+    }
+
+    #house-list button {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}

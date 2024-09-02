@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housecrud</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/housecrud.css' %}">
+</head>
+<body>
+    
+</body>
+</html>
+<h3>House Listings</h3>
+<table id="house-list">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Location</th>
+            <th>Price</th>
+            <th>Available</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+        
+    </thead>
+    <tbody>
+        {% for house in houses %}
+        <tr>
+            <td>{{ house.name }}</td>
+            <td>{{ house.location }}</td>
+            <td>ksh.{{ house.price }}</td>
+            <td>Yes</td>
+            <td>
+                {% if house.images %}
+                <img src="media/{{house.images.0}}" 
+                alt="{{house.name}}" 
+                width="100">
+                {% else %}
+                <img src="{% static 'assets/images/cityapartment.jpeg' %}" 
+                alt="{{house.name}}" 
+                width="100">
+                {% endif %}
+            </td>
+            <td>
+                <button class="view-button">View</button>
+                <button class="edit-button">Edit</button>
+                <button class="delete-button">Delete</button>
+            </td>
+        </tr>
+        {% endfor %}
+        
+    </tbody>
+</table>

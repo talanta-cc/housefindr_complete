@@ -1,0 +1,271 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo {
+    flex: 1;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 300px;
+    border-radius: 20px;
+    border: 1px solid #c7c2d1;
+}
+
+.search-bar button {
+    background-color: orange;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.user-options i {
+    font-size: 24px;
+    margin-left: 20px;
+    cursor: pointer;
+    color: orange; /* Icon color updated to orange */
+}
+
+nav > * {
+    margin: 0 10px;
+}
+
+.content {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    gap: 20px;
+}
+
+.property-details {
+    flex: 2;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.breadcrumb {
+    font-size: 14px;
+    color: #999;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #333;
+}
+
+.location {
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.location i {
+    margin-right: 5px;
+    color: orange; /* Location icon color */
+}
+
+.property-images {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.property-images img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease; /* Animation for hover */
+}
+
+.property-images img:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+}
+
+.small-images {
+    display: flex;
+    gap: 10px;
+}
+
+.small-images img {
+    width: calc(33.33% - 10px);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.property-info {
+    margin-top: 20px;
+}
+
+.property-info h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.property-info p {
+    color: #777;
+    margin-top: 5px;
+}
+
+.description {
+    margin-top: 20px;
+}
+
+.description p {
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+    max-height: 50px; /* Initially hide the full text */
+}
+
+.description.expanded p {
+    max-height: 300px; /* Expand to show more text */
+}
+
+.description button {
+    margin-top: 10px;
+    background-color: transparent;
+    border: none;
+    color: orange;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.features ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.features li {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Adjust spacing as needed */
+}
+
+.features i {
+    color: green; /* Adjust the color of the tick icon */
+    margin-right: 5px; /* Adjust spacing between icon and text */
+}
+
+.sidebar {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.price {
+    font-size: 24px;
+    color: green; /* Price text color */
+    margin: 20px 0;
+}
+
+.price h2 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.price p {
+    font-size: 16px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.agent-info {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.agent-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.agent-info p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.agent-info .highlight {
+    color: orange;
+    font-weight: bold;
+}
+
+.schedule-tour,
+.make-offer {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: orange;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.schedule-tour:hover,
+.make-offer:hover {
+    background-color: darkorange;
+}
+
+.guarantees {
+    font-size: 14px;
+    color: #777;
+    margin-top: 20px;
+}
+
+.chat-icon {
+    color: orange;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.chat-icon:hover {
+    transform: scale(1.2);
+}

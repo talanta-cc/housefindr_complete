@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/About_us.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'aboutus' %}">About us</a></li>
+                <li><a href="{% url 'sign-up' %}">sign-up</a></li>
+                <li><a href="{% url 'houses' %}">View Houses</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about-us">
+        <div class="about-content">
+            <div class="about-image">
+                <img src="{% static 'assets/images/DSC_2207.jpg' %}" alt="About Us">
+            </div>
+            <div class="about-text">
+                <h1>About Us</h1>
+                <p>A House" is more than just a store; it's a destination for those who seek to transform their living spaces into havens of comfort and style. Our curated collection of home goods, furniture, and décor pieces is thoughtfully selected to inspire and elevate your everyday life. Whether you're looking to revamp your entire home or simply add a touch of personality, A House offers a diverse range of options to suit your unique taste and preferences.</p>
+                <a href="#" class="read-more">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>

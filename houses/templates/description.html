@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ house.name }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/description.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header"> 
+        <nav>
+            <a href="{% url 'home' %}">
+                <div class="logo">
+                    <img src="{% static 'assets/images/logo.jpg' %}" alt="logo">
+                </div>
+            </a>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search for property" id="search-input">
+                <button id="search-button"><i class="fa fa-search"></i></button>
+            </div>
+            <div class="user-options">
+                <i class="fa fa-envelope" aria-hidden="true" alt="Messages"></i>
+                <i class="fa fa-bell" aria-hidden="true" alt="Notifications"></i>
+                <i class="fa fa-user" aria-hidden="true" alt="Profile"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content">
+        <section class="property-details">
+            <div class="top-section">
+                <div class="breadcrumb">
+                    <a href="/">Home</a> > <a href="/houses">House</a> > <span>{{ house.name }}</span>
+                </div>
+                
+            </div>
+            <div class="property-images">
+                {% if house.images %}
+                <img src="/media/{{ house.images.0 }}" alt="{{ house.name }}" id="main-image">
+                <div class="small-images">
+                    {% for image in house.images %}
+                    <img src="/media/{{ image }}" alt="{{ house.name }}" onclick="changeMainImage(this.src)">
+                    {% endfor %}
+                </div>
+                {% else %}
+
+                <img src="{% static 'assets/images/housecover.jpeg' %}" alt="{{ house.name }}" id="main-image">
+                <div class="small-images">
+                    <img src="{% static 'assets/images/image1.jpeg' %}" alt="{{ house.name }}" onclick="changeMainImage(this.src)">
+                    <img src="{% static 'assets/images/image2.jpg' %}" alt="{{ house.name }}" onclick="changeMainImage(this.src)">
+                    <img src="{% static 'assets/images/image3.webp' %}" alt="{{ house.name }}" onclick="changeMainImage(this.src)">
+                </div>
+
+                {% endif %}
+            </div>
+            <div class="property-info">
+                <h1>{{ house.name }}</h1>
+                <p>
+                    <i class="fa fa-bed"></i>  {{ house.houseType }} 
+                    <i class="fa fa-arrows-alt"></i> 
+                    <i class="fa fa-bath"></i> 
+                </p>
+            </div>
+            
+            <div class="description">
+                <h2>Description</h2>
+                <p id="description-text">
+                    {{ house.description }}
+                </p>
+                <button id="read-more">Read More</button>
+            </div>
+            <div class="features">
+                <ul>
+                    {% for feature in house.features %}
+                    <li><i class="fa fa-check" aria-hidden="true"></i> {{ feature }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            
+        </section>
+
+        <aside class="sidebar">
+            <div class="location">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>{{ house.location }}</span>
+            </div>
+            <div class="price">
+                <h2>Ksh.{{ house.price }}</h2>
+                <p>Market Price Based on Location: Ksh.{{ house.price }}</p>
+                <span>5% Cheaper</span>
+            </div>
+            <div class="agent-info">
+                <img src="{% static 'assets/images/agent1.jpg' %}" alt="Agent">
+                <p>{{ house.name }}</p>
+                <p class="highlight">Seller</p>
+                <i class="fa fa-comments chat-icon" id="chat-icon"></i>
+            </div>
+            
+            <a href="tel:{{ house.phone }}" style="text-decoration: none;">
+                <button class="schedule-tour">Call</button>
+            </a>
+            <a href="sms:+254{{ house.phone }}" style="text-decoration: none;">
+                <button class="make-offer">SMS</button>
+            </a>
+            <div class="guarantees">
+                <p>10-year quality guarantee.</p>
+                <p>Building design assurance as per applied plans.</p>
+            </div>
+        </aside>
+    </main>
+
+    <script src="{% static 'js/description.js' %}"></script>
+</body>
+</html>

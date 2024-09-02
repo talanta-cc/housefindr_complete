@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Website</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="{% static 'assets/images/logo.jpg' %}" alt="Property Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="{%  url 'houses' %}">Houses</a></li>
+                <li><a href="{%  url 'aboutus' %}">About us</a></li>
+                <li><a href="{%  url 'contactus' %}">Contact us</a></li>
+                {% if request.session.userId %}
+                <li><a href="{%  url 'profile' %}">Profile</a></li>
+                    {% if request.session.role == "admin" %}
+                    <li><a href="{%  url 'dashboard' %}">Admin</a></li>
+                    {% endif %}
+                {% else %}
+                <li><a href="{%  url 'sign-in' %}">sign in</a></li>
+                <li><a href="{%  url 'sign-up' %}">sign up</a></li>
+                {% endif %}
+            </ul>
+            <a href="{%  url 'contactus' %}" class="contact-btn">Contact Us</a>
+        </nav>
+        <div class="hero">
+            <h1>Find The Best <span class="highlight">Property</span> In Your Country</h1>
+            <div class="search-bar">
+                <div class="search-input">
+                    <label for="location">
+                        <p>Location</p>
+                        <input type="text" id="location" placeholder="New York">
+                        
+                    </label>
+                    <label for="" style="color: black;">
+                        📍
+                    </label>
+                </div>
+                <div class="search-input">
+                    <label for="property-type">
+                        <p>Property type</p>
+                        <input type="text" id="property-type" placeholder="Duplex">
+                      
+
+                    </label>
+                    <label for="" style="color: black;">
+                        🏠
+                    </label>
+                </div>
+                <div class="search-input">
+                    <label for="max-price">
+                        <p>Max price</p>
+                        <input type="text" id="max-price" placeholder="price..">
+                        
+                    </label>
+                    <div class="feature-icon">
+                        <label for="" style="color: black;">
+                            <label for="" style="color: black;">
+                                &#65284;
+                            </label>
+                        </label>
+                    </div>
+                    
+                </div>
+                <button class="search-btn">🔍</button>
+            </div>
+        </div>
+    </header>
+    <section class="features">
+        <div class="feature-item">
+            <div class="feature-icon">✅</div>
+            <h3>Company Professional</h3>
+            <p>We are a professional company with 12 years of experience based in Bangladesh and have assisted many
+                clients.</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">⏰</div>
+            <h3>24 hour support</h3>
+            <p>We leverage our breadth of asset classes, vertically integrated services, unique business model, and
+                in-house development.</p>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">💰</div>
+            <h3>Saving in various</h3>
+            <p>We identify opportunities, craft targeted investment vehicles, and provide ongoing asset and property
+                management.</p>
+        </div>
+    </section>
+    <section class="properties">
+        <h2>Our Latest Properties With Well Rooms</h2>
+        <div class="slider">
+            <button class="prev">←</button>
+            <div class="slider-images">
+
+                {% for house in houses %}
+                    <a href="/houses/view/{{ house.id }}" class="property-card">
+                        
+                            {% if house.images %}
+                            <img src="/media/{{house.images.0}}" alt="House 1">
+                            {% else %}
+                            <img src="{% static 'assets/images/image1.jpeg' %}" alt="House 1">
+                            {% endif %}
+                            <div class="property-info">
+                                <span class="love-emoji">❤️</span>
+                                <p>{{ house.name }}</p>
+                                <p class="price">Ksh.{{ house.price }}</p>
+                            </div>
+                        
+                    </a>
+                {% endfor %}
+            </div>
+            <button class="next">→</button>
+        </div>
+        
+       
+    </section>
+    <script src="{% static 'js/home.js' %}"></script>
+</body>
+
+</html>

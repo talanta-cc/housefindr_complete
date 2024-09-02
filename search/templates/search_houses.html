@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House for Rent</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/houses.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>House for Rent</h1>
+            <p>{{ houses.len }} search results found</p>
+        </header>
+
+        <section class="properties">
+
+            {% for house in houses %}
+                <div class="property">
+                    {% if house.images %}
+                    <img src="/media/{{ house.images.0 }}" alt="{{ house.name }}">
+                    {% else %}
+                    <img src="{% static 'assets/images/cityapartment.jpeg' %}" alt="{{ house.name }}">
+                    {% endif %}
+
+                    <div class="property-info">
+                        <h2>{{ house.name }}</h2>
+                        <p><strong>Location:</strong> {{ house.location }}</p>
+                        <p><strong>Features:</strong>
+                        {% for feature in house.features %}
+                            {{ feature }},
+                        {% endfor %}
+                        </p>
+                        
+                        <p><strong>Rent:</strong> {{ house.price }}</p>
+                        <a href="/houses/view/{{ house.id }}">View Details</a>
+                    </div>
+                </div>
+            {% endfor %}
+            
+        </section>
+
+        <section class="why-rent">
+            <h2>Why Rent with Us?</h2>
+            <ul>
+                <li><strong>Prime Locations:</strong> Desirable neighborhoods close to schools, shopping, and entertainment.</li>
+                <li><strong>Quality Homes:</strong> Maintained to the highest standards for comfort.</li>
+                <li><strong>Flexible Leasing:</strong> Various lease terms to suit your needs.</li>
+                <li><strong>Responsive Management:</strong> We're here to assist you, making your rental experience hassle-free.</li>
+            </ul>
+        </section>
+
+        <section class="how-to-apply">
+            <h2>How to Apply</h2>
+            <ol>
+                <li><strong>Browse Properties:</strong> Find the one that suits your lifestyle.</li>
+                <li><strong>Schedule a Viewing:</strong> Contact us for a tour.</li>
+                <li><strong>Submit Application:</strong> Fill out our online form.</li>
+                <li><strong>Get Approved:</strong> We'll review your application and notify you of the next steps.</li>
+            </ol>
+        </section>
+
+        <footer>
+            <h2>Contact Us</h2>
+            <p>Ready to find your new home? Get in touch today!</p>
+            <p><strong>Phone:</strong> Your Contact Number</p>
+            <p><strong>Email:</strong> Your Email Address</p>
+            <p><strong>Office Hours:</strong> Your Office Hours</p>
+        </footer>
+    </div>
+</body>
+</html>

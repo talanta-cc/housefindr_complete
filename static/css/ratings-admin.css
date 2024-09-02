@@ -1,0 +1,221 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    padding-top: 20px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style-type: none;
+    background-color: #fff;
+    padding: 10px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.navbar ul li {
+    margin-right: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.navbar ul li.active {
+    font-weight: bold;
+    color: orange;
+}
+
+.tabs {
+    margin-top: 20px;
+    display: flex;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.tablinks {
+    background-color: transparent;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+.tablinks.active {
+    border-bottom: 2px solid orange;
+    font-weight: bold;
+    color: orange;
+}
+
+.tabcontent {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+thead th {
+    padding: 15px;
+    text-align: left;
+    background-color: #f1f1f1;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+tbody .user {
+    display: flex;
+    align-items: center;
+}
+
+.user img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+tbody .rating {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.rating-number {
+    font-size: 18px;
+    font-weight: bold;
+    color: orange;
+    margin-bottom: 5px;
+}
+
+.stars {
+    display: flex;
+}
+
+.stars .fa-star,
+.stars .fa-star-half-alt {
+    font-size: 18px;
+    color: orange; /* Orange color for stars */
+}
+
+tbody .product-img {
+    width: 50px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the element without distortion */
+    border-radius: 5px; /* Optional: for rounded corners */
+}
+
+tbody .btn {
+    background-color: orange;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+tbody .btn i {
+    margin: 0;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.pagination .page-link {
+    border: 1px solid #e0e0e0;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.pagination .page-link:hover {
+    background-color: #f1f1f1;
+}
+/* Toggle button styling */
+.navbar-toggle {
+    display: none;
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 10px;
+}
+
+.navbar ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.navbar ul.mobile {
+    display: none;
+    flex-direction: column;
+    padding: 0;
+    border-top: 2px solid #e0e0e0;
+}
+
+.navbar ul.navbar-expanded {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+    }
+
+    .navbar-toggle {
+        display: inline-block;
+    }
+
+    .tabs {
+        flex-direction: column;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table tbody tr {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    table tbody td {
+        display: block;
+        text-align: right;
+        position: relative;
+        padding-left: 50%;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    table tbody td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .pagination {
+        flex-direction: column;
+        align-items: center;
+    }
+}

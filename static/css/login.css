@@ -1,0 +1,176 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.login-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 400px;
+    max-width: 90%;
+}
+
+
+.logo img {
+    width: 50px;
+    margin-bottom: 20px;
+}
+
+
+h1 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+
+.social-login {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.social-login button {
+    border: 1px solid #ccc;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    padding: 10px;
+    width: 30%;
+    cursor: pointer;
+}
+
+.social-login button img {
+    width: 24px;
+    height: 24px;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.divider hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+.divider span {
+    margin: 0 10px;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.password-container {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.options a {
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+
+.login-btn {
+    padding: 10px;
+    background-color: #ff7e5f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+.signup {
+    margin-top: 20px;
+    color: #666;
+}
+
+.signup a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+@media screen and (max-width: 600px) {
+    .login-container {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .logo img {
+        width: 40px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .social-login button {
+        padding: 8px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .login-btn {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .signup {
+        font-size: 0.9em;
+    }
+}

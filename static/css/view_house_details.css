@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color:#ff7e5f ; /* Orange theme */
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    width: 150px;
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+.nav-links a:hover {
+    background-color: white;
+    color: #ff7e5f;
+    border-radius: 5px;
+}
+
+.container {
+    width: 80%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border-top: 5px solid #ff7e5f; /* Orange border */
+}
+
+h1 {
+    text-align: center;
+    color:#ff7e5f ; /* Orange text color */
+}
+
+.house-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.house-card img {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.house-info {
+    flex: 1;
+}
+
+.house-info h2 {
+    margin: 0;
+    color: #333;
+}
+
+.house-info p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.house-info ul {
+    list-style-type: disc;
+    margin: 10px 0 10px 20px;
+    color: #555;
+}
+
+.house-info ul li {
+    margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+    .house-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .house-card img {
+        width: 100%;
+    }
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add House</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/Add_house.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Review.html">Review</a></li>
+                <li><a href="About_us.html">About Us</a></li>
+                <li><a href="sign_up.html">sign-up</a></li>
+                <li><a href="Add house.html">Add House</a></li>
+                <li><a href="view house details.html">View Houses details</details></a></li>
+                <li><a href="view-houses.html">View Houses</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="add-house-section">
+            <h1>Add a New House</h1>
+            <form id="house-form" method="post" action="{% url 'admin-store' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <label for="house-name">Name:</label>
+                <input type="text" id="house-name" name="name" required>
+
+                <label for="house-location">Select owner:</label>
+                <select name="ownerId">
+                    <option></option>
+                    {% for owner in owners %}
+                        <option value="{{ owner.id }}">{{ owner.name }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="house-location">Location:</label>
+                <input type="text" id="house-location" name="location" required>
+
+
+
+                <label for="house-type">Type:</label>
+                <input type="text" id="house-type" name="type" required>
+
+                <label for="house-price">Price:</label>
+                <input type="number" id="house-price" name="price" required>
+
+                <label for="house-description">Description:</label>
+                <textarea id="house-description" name="description" rows="4" required></textarea>
+
+                <label for="house-features">Unique Features (separated by comma):</label>
+                <textarea id="house-features" name="features" rows="4"></textarea>
+
+                <label for="house-image">House Image:</label>
+                <input type="file" id="house-image" multiple name="image" accept="image/*" required>
+
+                <button type="submit">Add House</button>
+            </form>
+        </section>
+    </main>
+    
+    <!-- add-house.html -->
+<script>
+    // Function to add a house (separated by comma)
+    function addHouse(event) {
+        event.preventDefault();
+    
+        // Get input values
+        const houseName = document.getElementById('houseName').value;
+        const location = document.getElementById('location').value;
+        const type = document.getElementById('type').value;
+        const price = document.getElementById('price').value;
+        const description = document.getElementById('description').value;
+        const imageUrl = document.getElementById('imageUrl').value;
+    
+        // Create a house object
+        const house = {
+            name: houseName,
+            location: location,
+            type: type,
+            price: price,
+            description: description,
+            imageUrl: imageUrl
+        };
+    
+        // Retrieve existing houses from localStorage
+        let houses = JSON.parse(localStorage.getItem('houses')) || [];
+    
+        // Add new house to the array
+        houses.push(house);
+    
+        // Save updated houses array back to localStorage
+        localStorage.setItem('houses', JSON.stringify(houses));
+    
+        // Optionally, reset the form after submission
+        document.getElementById('houseForm').reset();
+    
+        alert("House added successfully!");
+    }
+    
+    document.getElementById('houseForm').addEventListener('submit', addHouse);
+    </script>
+    
+
+    <script src="add_house.js"></script>
+</body>
+</html>

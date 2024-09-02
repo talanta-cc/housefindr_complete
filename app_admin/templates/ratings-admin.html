@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review & Rating</title>
+    <link rel="stylesheet" href="ratings-admin.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <ul>
+                <li>Dashboard</li>
+                <li>Sponsored Post</li>
+                <li class="active">Review & Rating</li>
+                <li>Shop Font</li>
+                <li>Project</li>
+                <li>Page</li>
+                <li>User Admin</li>
+                <li>Report</li>
+            </ul>
+        </div>
+
+        <div class="tabs">
+            <button class="tablinks active" onclick="openTab(event, 'Approved')">Approved (12)</button>
+            <button class="tablinks" onclick="openTab(event, 'Requested')">Requested (7)</button>
+        </div>
+
+        <div id="Approved" class="tabcontent">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Review</th>
+                        <th>Product</th>
+                        <th>Rating</th>
+                        <th>Details</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="user">
+                                <img src="assets/images/userprofile1.jpg" alt="User Image">
+                                <div>
+                                    <p>Gabriel Pires</p>
+                                    <span>12:31 PM, 23 Nov, 2020</span>
+                                    <p>Love the way this picture turned out. Drills were beautiful.</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td><img src="assets/images/image2.jpg" alt="Product Image" class="product-img">HamingBird</td>
+
+                        <td>
+                            <div class="rating">
+                                <span class="rating-number">4.5</span>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </td>
+                        <td><button class="btn">View Details</button></td>
+                        <td><button class="btn"><i class="fas fa-ellipsis-h"></i></button></td>
+                    </tr>
+                    <!-- Repeat similar <tr> for other users -->
+                </tbody>
+            </table>
+            <div class="pagination">
+                <button class="page-link">1</button>
+                <button class="page-link">2</button>
+                <button class="page-link">3</button>
+                <span>...</span>
+                <button class="page-link">20</button>
+            </div>
+        </div>
+
+        <div id="Requested" class="tabcontent" style="display:none">
+            <!-- Similar content as Approved tab -->
+        </div>
+    </div>
+
+    <script src="ratings-admin.js"></script>
+</body>
+</html>
