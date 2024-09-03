@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Reviews</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/review.css' %}">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <img src="/static/assets/images/logo.jpg" alt="Property Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="{%  url 'houses' %}">Houses</a></li>
+            <li><a href="{%  url 'aboutus' %}">About us</a></li>
+            <li><a href="{%  url 'contactus' %}">Contact us</a></li>
+            {% if request.session.userId %}
+            <li><a href="{%  url 'profile' %}">Profile</a></li>
+                {% if request.session.role == "admin" %}
+                <li><a href="{%  url 'dashboard' %}">Admin</a></li>
+                {% endif %}
+            {% else %}
+            <li><a href="{%  url 'sign-in' %}">sign in</a></li>
+            <li><a href="{%  url 'sign-up' %}">sign up</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <section class="review-section">
+        <h2>What our customers say</h2>
+        <div class="ratings-overview">
+            <div class="overall-rating">
+                <span>4.9</span>
+                <span>⭐⭐⭐⭐⭐</span>
+            </div>
+
+            <a href="/reviews/create/{{ house.id }}">
+                <button class="write-review-button">Write a review</button>
+            </a>
+
+        </div>
+        <div class="review-cards">
+            {% for review in reviews %}
+
+            <div class="review-card">
+                <div class="reviewer-info">
+                    <img src="/static/assets/images/profile.jpeg" alt="{{ review.name }}">
+                    <span class="reviewer-name">{{ review.name }}</span>
+                    <span class="reviewer-rating">
+                        
+                            {{ review.stars }}⭐
+                        
+                    </span>
+                </div>
+                <p class="review-text">{{ review.comment }}</p>
+                <span class="review-date">{{ review.createdAt }}</span>
+            </div>
+
+            {% endfor %}
+            <!-- More review cards here -->
+        </div>
+        <button class="arrow arrow-left">❮</button>
+        <button class="arrow arrow-right">❯</button>
+    </section>
+
+
+    <script src="{% static 'js/review.js' %}"></script>
+</body>
+
+</html>

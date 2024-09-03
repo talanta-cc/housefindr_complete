@@ -23,9 +23,18 @@
                 <button id="search-button"><i class="fa fa-search"></i></button>
             </div>
             <div class="user-options">
-                <i class="fa fa-envelope" aria-hidden="true" alt="Messages"></i>
-                <i class="fa fa-bell" aria-hidden="true" alt="Notifications"></i>
-                <i class="fa fa-user" aria-hidden="true" alt="Profile"></i>
+                <a href="{% url 'profile' %}">
+                    <i class="fa fa-envelope" aria-hidden="true" alt="Messages"></i>
+                </a>
+
+                <a href="{% url 'profile' %}">
+                    <i class="fa fa-bell" aria-hidden="true" alt="Notifications"></i>
+                </a>
+
+
+                <a href="{% url 'profile' %}" >
+                    <i class="fa fa-user" aria-hidden="true" alt="Profile"></i>
+                </a>
             </div>
         </nav>
     </header>
@@ -91,7 +100,7 @@
             <div class="price">
                 <h2>Ksh.{{ house.price }}</h2>
                 <p>Market Price Based on Location: Ksh.{{ house.price }}</p>
-                <span>5% Cheaper</span>
+                <span></span>
             </div>
             <div class="agent-info">
                 <img src="{% static 'assets/images/agent1.jpg' %}" alt="Agent">
@@ -106,13 +115,23 @@
             <a href="sms:+254{{ house.phone }}" style="text-decoration: none;">
                 <button class="make-offer">SMS</button>
             </a>
+            <a href="/houses/location?latitude={{ house.latitude }}&longitude={{ house.longitude }}" style="text-decoration: none;">
+                <button class="make-offer">View On map</button>
+            </a>
+
+            <a href="/reviews/{{ house.id }}" style="text-decoration: none;">
+                <button class="make-offer">{{ reviews|length }} Reviews</button>
+            </a>
+
             <div class="guarantees">
-                <p>10-year quality guarantee.</p>
+                <p></p>
                 <p>Building design assurance as per applied plans.</p>
             </div>
         </aside>
     </main>
 
     <script src="{% static 'js/description.js' %}"></script>
+
+    
 </body>
 </html>

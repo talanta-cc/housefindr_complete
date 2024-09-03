@@ -1,0 +1,245 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #ff7e5f;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Review Section */
+.review-section {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color:#ff7e5f ;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Section Title */
+.review-section h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Ratings Overview */
+.ratings-overview {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.ratings-overview .overall-rating {
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+    color:#ff7e5f ;
+    font-weight: bold;
+}
+
+.ratings-overview .overall-rating span {
+    margin-left: 10px;
+    font-size: 16px;
+    color: #666;
+}
+
+.ratings-overview .write-review-button {
+    padding: 10px 20px;
+    background-color:#ff7e5f ;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.ratings-overview .write-review-button:hover {
+    background-color: #cc3300;
+}
+
+/* Review Cards Container */
+.review-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Review Card */
+.review-card {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    position: relative;
+}
+
+.review-card .reviewer-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.review-card .reviewer-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.review-card .reviewer-info .reviewer-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.review-card .reviewer-info .reviewer-rating {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    color: orangered;
+    font-size: 14px;
+}
+
+.review-card .reviewer-info .reviewer-rating img {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+
+.review-card .review-text {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.review-card .review-date {
+    font-size: 12px;
+    color: #aaa;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+}
+
+/* Arrows for sliding reviews */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color:#ff7e5f ;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.arrow:hover {
+    background-color: #cc3300;
+}
+
+.arrow-left {
+    left: -15px;
+}
+
+.arrow-right {
+    right: -15px;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px 50px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    height: 50px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+}
+
+.contact-btn {
+    background-color:#ff7e5f ;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+}@media (max-width: 768px) {
+    /* Adjust navigation bar layout */
+    nav {
+      flex-wrap: wrap; /* Wrap items onto multiple lines */
+      justify-content: center; /* Center items horizontally */
+    }
+  
+    .nav-links {
+      gap: 10px; /* Reduce gap between items */
+    }
+  
+    .hero {
+      height: auto; /* Adjust hero section height for smaller screens */
+      padding: 50px 20px;
+    }
+  
+    .search-bar {
+      margin-top: 150px; /* Adjust search bar position */
+    }
+  
+    .features {
+      flex-direction: column; /* Stack feature items vertically */
+      align-items: center;
+    }
+  
+    .feature-item {
+      margin-bottom: 20px;
+    }
+  
+    .slider {
+      max-width: 100%; /* Make slider responsive */
+    }
+  
+    .property-card {
+      margin: 0; /* Remove margin between property cards */
+    }
+  }
+  
+  /* For screens smaller than 480px */
+  @media (max-width: 480px) {
+    .hero h1 {
+      font-size: 36px; /* Reduce heading size */
+    }
+  
+    .search-bar {
+      flex-direction: column; /* Stack search input and button vertically */
+      align-items: flex-start;
+    }
+  
+    .search-input {
+      width: 100%;
+    }
+}

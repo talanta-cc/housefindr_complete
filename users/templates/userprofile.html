@@ -11,7 +11,29 @@
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
 </head>
 <body>
-    
+
+    <nav>
+            <div class="logo">
+                <img src="{% static 'assets/images/logo.jpg' %}" alt="Property Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="{%  url 'houses' %}">Houses</a></li>
+                <li><a href="{%  url 'aboutus' %}">About us</a></li>
+                <li><a href="{%  url 'contactus' %}">Contact us</a></li>
+                {% if request.session.userId %}
+                <li><a href="{%  url 'profile' %}">Profile</a></li>
+                    {% if request.session.role == "admin" %}
+                    <li><a href="{%  url 'dashboard' %}">Admin</a></li>
+                    {% endif %}
+                {% else %}
+                <li><a href="{%  url 'sign-in' %}">sign in</a></li>
+                <li><a href="{%  url 'sign-up' %}">sign up</a></li>
+                {% endif %}
+            </ul>
+            <a href="{%  url 'contactus' %}" class="contact-btn">Contact Us</a>
+        </nav>
+
     <div class="profile-card">
         <div class="left-side">
             <div class="profile-image">

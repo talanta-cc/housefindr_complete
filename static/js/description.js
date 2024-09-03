@@ -20,5 +20,7 @@ document.getElementById('read-more').addEventListener('click', function() {
 // Function to handle search button click
 document.getElementById('search-button').addEventListener('click', function() {
     const query = document.getElementById('search-input').value;
-    alert('Search for: ' + query); // Placeholder action for search
+    let text = document.querySelector("#search-input").value;
+    window.location.href = `/search?location=${text}&price=&type=`
 });
+

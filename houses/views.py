@@ -5,6 +5,7 @@ from houses.models import House
 from django.conf import settings
 
 from users.models import User
+from reviews.models import Review
 
 # Create your views here.
 def index(request):
@@ -49,7 +50,9 @@ def view(request,id):
             "phone":allHouses[15],
             "ownerEmail":allHouses[16],
     }
-    return render(request,"description.html",{"house":house_item})
+
+    reviews = Review.objects.filter(houseId=house).all()
+    return render(request,"description.html",{"house":house_item,"reviews":reviews})
 
 def create(request):
     return render(request,"create.html")
@@ -67,6 +70,9 @@ def edit(request,id):
 def update(request,id):
     house = House.objects.filter(id=id).first()
     return redirect("/houses")
+
+def location(request):
+    return render(request,"location.html")
 
 def delete(request,id):
     house = House.objects.update(isDeleted=True)
